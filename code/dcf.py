@@ -4,6 +4,7 @@ import time
 import numpy as np
 from yahooquery import Ticker 
 from scipy.stats import gmean
+import json
 
 pd.set_option('display.max_rows', None)
 
@@ -226,3 +227,13 @@ if __name__ == "__main__":
         print(f"Analysis failed: {e}")
         import traceback
         traceback.print_exc()
+
+
+
+with open("/Users/jorismeert/Desktop/Python/ProjectDCF/data/ticker_DJ.json", "r", encoding="utf-8") as f:
+    dow_jones = json.load(f)
+
+for c in dow_jones["DowJones"]:
+    print(f"{c['ticker']}: {c['company']}")
+
+
